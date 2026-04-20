@@ -134,6 +134,21 @@ pip install -r requirements.txt
 
 ## Running
 
+### Easiest — double-click launcher
+
+The repo includes double-click launchers that handle the virtualenv and dependencies for you:
+
+| Platform | File | How to use |
+|---|---|---|
+| **macOS** | `run.command` | Double-click. First run creates `.venv` and installs PySide6 (~30 s). Subsequent launches are instant. If macOS Gatekeeper blocks it the first time, right-click → *Open*, or run `chmod +x run.command` once in Terminal. |
+| **Windows** | `run.bat` | Double-click. First run creates `.venv` and installs PySide6. The app launches without a console window via `pythonw`. |
+
+Both launchers check that `ffmpeg` and `ffprobe` are on `PATH` and show a clear error if they're missing.
+
+**Tip:** on macOS, right-click `run.command` → *Make Alias* and drag the alias to your Desktop / Dock for one-click access. On Windows, right-click `run.bat` → *Send to → Desktop (create shortcut)*, or pin the shortcut to the Taskbar.
+
+### Manual
+
 ```bash
 python3 main.py            # macOS / Linux
 py main.py                 # Windows
@@ -218,6 +233,8 @@ output  a:1  MD5=214e5e52e0ffaa56a2726f161ea8b70d   ← source's a:0
 ```
 video-audio-channel-changer/
 ├── main.py                     # Entry point
+├── run.command                 # macOS double-click launcher
+├── run.bat                     # Windows double-click launcher
 ├── requirements.txt            # PySide6
 ├── app/
 │   ├── probe.py                # ffprobe wrapper, Stream / ProbeResult dataclasses
